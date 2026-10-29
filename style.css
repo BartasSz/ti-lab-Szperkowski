@@ -34,3 +34,7 @@
     border-color: #4426FF; 
     background: #EEF; 
 }
+
+.num { 
+    text-align: right; 
+}
