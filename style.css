@@ -7,6 +7,7 @@
 .menu { 
     display: flex; 
     gap: 16px; 
+    
 }
 
 .menu a { 
@@ -37,4 +38,35 @@
 
 .num { 
     text-align: right; 
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* Wąskie ekrany (telefony) */
+@media (max-width: 600px) {
+    .site-header { 
+        flex-direction: column;
+        align-items: flex-start; /* Żeby logo nie było na środku */
+    }
+    
+    /* Na telefonie pokazujemy przycisk */
+    .menu-toggle {
+        display: block;
+        margin-top: 10px;
+    }
+
+    /* Na telefonie domyślnie ukrywamy całe menu */
+    .menu {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    /* Na telefonie pokazujemy menu, gdy dostanie klasę "menu--open" od JavaScriptu */
+    .menu.menu--open {
+        display: flex;
+    }
 }
