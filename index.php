@@ -1,12 +1,11 @@
 <?php
 $firma = 'Szprycha';
 $rok = date('Y');
-$cennik = [
-    ['nazwa' => 'Przegląd podstawowy', 'cena' => 120],
-    ['nazwa' => 'Przegląd rozszerzony', 'cena' => 200],
-    ['nazwa' => 'Centrowanie koła', 'cena' => 60],
-    ['nazwa' => 'Wymiana dętki', 'cena' => 30],
-];
+$imie = htmlspecialchars($_GET['imie'] ?? 'Rowerzysto');
+
+
+require 'baza.php';
+$uslugi = $pdo->query('SELECT nazwa, cena FROM uslugi ORDER BY cena')->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -76,7 +75,7 @@ $cennik = [
         </tr>
     </thead>
     <tbody>
- <?php foreach ($cennik as $usluga): ?>
+ <?php foreach ($uslugi as $usluga): ?>
         <tr>
             <td><?= htmlspecialchars($usluga['nazwa']) ?></td>
             <td class="num"><?= $usluga['cena'] ?> zł</td>
